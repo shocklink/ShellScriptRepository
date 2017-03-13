@@ -1,0 +1,16 @@
+
+* dmesg > d.txt
+
+* ./parse_dmesg.sh d.txt
+
+* binary_plus_space.py to change d.txt from 0xf to 0b "1 1 1 1"
+	python binary_plus_space.py d.free > d.free.bin
+	python binary_plus_space.py d.cache > d.cache.bin
+
+* plot2.py then plot this 2d array
+	python plot2.py d.free.bin d.cache.bin
+	ps. this array must be row complete (usually we delete last row to ensure this)
+
+
+* vim
+	:%s/<6> #c#[0-9]*://gc

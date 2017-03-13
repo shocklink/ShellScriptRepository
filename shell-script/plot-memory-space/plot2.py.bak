@@ -1,0 +1,37 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import sys
+
+print 'Number of arguments:', len(sys.argv), 'arguments.'
+print 'Argument List:', str(sys.argv)
+filename = sys.argv[1]
+
+#with open("d.array.test", "r") as ins:
+#    array = []
+#    for line in ins:
+#        array.append(line.rstrip())
+#print array
+
+#with open("d.free.bin", "r") as ins:
+with open(filename, "r") as ins:
+    array = []
+    for line in ins:
+        line = line.replace(" ", "")
+        #print line
+        array.append(tuple(map(int, line.rstrip())))
+
+#print array
+#print np.array(array)
+array = np.array(array)
+
+
+#data = np.array([[0,1,1,1], [1,0,0,1], [1,1,1,0], [0,0,0,1]])
+# get the indices where data is 1
+#x,y = np.argwhere(array == 1).T
+#
+#plt.scatter(x,y)
+#plt.show()
+
+#plt.figure(figsize=(10,10))
+plt.matshow(array)
+plt.show()
